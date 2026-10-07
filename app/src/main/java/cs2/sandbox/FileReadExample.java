@@ -8,9 +8,9 @@ public class FileReadExample {
     try {
       File file = new File("tempest.txt");
       Scanner scan = new Scanner(file);
-      System.out.println(scan.nextLine());
-      System.out.println(scan.nextLine());
-      System.out.println(scan.nextLine());
+      while(scan.hasNextLine()) {
+        System.out.println(scan.nextLine());
+      }
       scan.close();
     } catch (Exception ex) {
       System.err.println("Something went wrong!");
