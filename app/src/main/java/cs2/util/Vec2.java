@@ -1,10 +1,14 @@
 package cs2.util;
 
 public class Vec2 {
-  private double x;
-  private double y;
+  public double x;
+  public double y;
   public Vec2(double ix, double iy) { x=ix; y=iy; }
   public Vec2() {x=0; y=0;}
+
+  public static Vec2 random() {
+    return new Vec2(Math.random()*2-1, Math.random()*2-1);
+  }
 
   public String toString() {
     return "(" + x + "," + y + ")";
@@ -22,6 +26,9 @@ public class Vec2 {
   public void scaleDims(double xscale, double yscale) {
     this.x *= xscale;
     this.y *= yscale;
+  }
+  public Vec2 clone() {
+    return new Vec2(this.x, this.y);
   }
   
 }
