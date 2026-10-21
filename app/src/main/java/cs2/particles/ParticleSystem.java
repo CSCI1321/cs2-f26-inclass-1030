@@ -10,13 +10,14 @@ public class ParticleSystem {
   private Vec2 origin;
 
   public ParticleSystem(Vec2 o) {
-    parts = new ArrayList<Particle>();
+    parts = new ArrayList<>();
     origin = o;
   }
 
   public void addParticle() {
-    Particle p = new Particle(origin.clone(), Vec2.random());
-    parts.add(p);
+    parts.add(new SquareParticle(origin.clone(), Vec2.random()));
+    parts.add(new RoundParticle(origin.clone(), Vec2.random()));
+    
   }
 
   public void display(GraphicsContext g) {
