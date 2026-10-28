@@ -7,6 +7,7 @@ import javafx.scene.paint.Color;
 public abstract class Particle {
   protected Vec2 pos;
   protected Vec2 vel;
+  //protected Vec2 acc;
   protected Color col = Color.ORANGERED;
   public Particle(Vec2 p, Vec2 v) {
     pos = p; vel = v;
@@ -14,6 +15,7 @@ public abstract class Particle {
   public abstract void display(GraphicsContext g);
   
   public void update() {
+    //vel.addThis(acc);
     pos.addThis(vel);
   }
   public void applyForce(Vec2 force) {

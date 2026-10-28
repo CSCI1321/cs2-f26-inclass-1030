@@ -15,6 +15,8 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class ParticleSystemApp extends Application {
+  public static final Image STARPIC = new Image("file:star.png");
+
   public void start(Stage stg) {
     Canvas canvas = new Canvas(600, 600);
     Scene scene = new Scene(new StackPane(canvas));
@@ -22,7 +24,7 @@ public class ParticleSystemApp extends Application {
     stg.setTitle("Particle System");
     stg.show();
 
-    Image img = new Image("file:star.jpg");
+    
 
     GraphicsContext g = canvas.getGraphicsContext2D();
 
@@ -30,6 +32,7 @@ public class ParticleSystemApp extends Application {
     ArrayList<ParticleSystem> ps = new ArrayList<>();
     
     canvas.setOnMousePressed((MouseEvent e) -> {
+      //ps.add(new ImageParticleSystem(new Vec2(e.getX(),e.getY()),STARPIC));
       ps.add(new ParticleSystem(new Vec2(e.getX(),e.getY())));
     });
 
@@ -39,11 +42,11 @@ public class ParticleSystemApp extends Application {
         g.fillRect(0,0, canvas.getWidth(), canvas.getHeight());
         for(ParticleSystem s : ps) {
           s.addParticle();
-          s.display(g);
           s.update();
+          s.display(g);
           s.applyForce(new Vec2(0,0.1));
         }
-        g.drawImage(img, 100,100);
+        //g.drawImage(img, 100,100);
       }
     };
     timer.start();
